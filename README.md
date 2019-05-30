@@ -2,4 +2,4 @@
 
 Usage:
 
-python3 generate_iso.py -n <username> -p <password>
+python3 generate_iso.py -n username -p password
