@@ -82,13 +82,14 @@ def create_userdata(username, password=None):
             'groups': 'users, admin',
             'sudo': 'ALL=(ALL) NOPASSWD:ALL',
             'ssh_import_id': 'None',
-            'lock_passwd': 'false',
+            'lock_passwd': False,
             'passwd': pw
             }]
         }
 
     file_name = "user-data"
-    with open(file_name, "w") as f:
+    with open(file_name, "w+") as f:
+        f.write("#cloud-config\n")
         yaml.dump(userdata_dictionary, f, allow_unicode=True, 
                 default_flow_style=False, sort_keys=False)
 
